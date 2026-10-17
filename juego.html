@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Desafío de Triples - Christopher MVP</title>
+    <link rel="stylesheet" href="css/styleJuego.css">
+    <!-- Motor físico Matter.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+</head>
+<body class="body-juego">
+
+    <!-- Interfaz superior responsiva -->
+    <div id="game-ui">
+        <a href="index.html" class="btn-volver">⬅ Volver</a>
+        <div class="score-board">PUNTOS: <span id="score">0</span></div>
+        <div class="instructions">🏀 Toca y arrastra hacia atrás para ajustar ángulo y fuerza</div>
+    </div>
+
+    <!-- Contenedor del juego -->
+    <div id="canvas-container"></div>
+
+    <script src="js/juego.js"></script>
+</body>
+</html>

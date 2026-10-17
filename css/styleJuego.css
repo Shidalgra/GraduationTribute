@@ -1,0 +1,138 @@
+/* ==========================================================================
+   ESTILOS EXCLUSIVOS PARA LA PÁGINA DEL JUEGO (JUEGO.HTML)
+   ========================================================================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body.body-juego {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+    touch-action: none;
+    background-color: #070a0e;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('../images/cancha-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Contenedor del lienzo de Matter.js */
+#canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Interfaz superior responsiva */
+#game-ui {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    max-width: 800px;
+}
+
+.score-board {
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid #f97316;
+    padding: 6px 16px;
+    border-radius: 12px;
+    color: #fff;
+    font-family: 'Impact', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+}
+
+.score-board span {
+    color: #f97316;
+    font-size: 1.5rem;
+}
+
+.btn-volver {
+    background: #ef4444;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.btn-volver:hover {
+    transform: scale(1.05);
+}
+
+.instructions {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES BASADAS EN ORIENTACIÓN Y PROPORCIÓN
+   ========================================================================== */
+
+/* Teléfono en modo vertical (Más alto que ancho) */
+@media (max-width: 768px) and (orientation: portrait) {
+    #game-ui {
+        top: 10px;
+        gap: 8px;
+    }
+
+    .instructions {
+        order: 3;
+        width: 100%;
+        font-size: 0.75rem;
+    }
+}
+
+/* Teléfono o Tablet en modo Horizontal / Landscape (Más ancho que alto) */
+@media (max-height: 600px) and (orientation: landscape) {
+    #game-ui {
+        top: 8px;
+        gap: 10px;
+    }
+
+    .instructions {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    .score-board {
+        font-size: 1rem;
+        padding: 4px 12px;
+    }
+
+    .score-board span {
+        font-size: 1.2rem;
+    }
+
+    .btn-volver {
+        padding: 4px 12px;
+        font-size: 0.8rem;
+    }
+}
