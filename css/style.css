@@ -1,0 +1,207 @@
+/* ==========================================================================
+   RESET Y VARIABLES (Limpieza absoluta)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #070a0e;
+    --bg-card: rgba(15, 23, 42, 0.85);
+    --primary-orange: #f97316;
+    --neon-glow: #ea580c;
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background-color: var(--bg-dark);
+    /* Degradado sutil que imita la iluminación de un estadio reflectivo */
+    background-image: radial-gradient(circle at 50% 30%, #1e293b 0%, var(--bg-dark) 80%);
+    color: var(--text-light);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Lienzo de físicas (Detrás de todo) */
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Contenedor global con márgenes seguros */
+.wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ==========================================================================
+   SECCIÓN 1: EL MARCADOR (Hero)
+   ========================================================================== */
+.hero-stadium {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 10px;
+    text-align: center;
+}
+
+.scoreboard {
+    background: #000;
+    border: 4px double var(--primary-orange);
+    padding: 25px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+.board-header {
+    font-family: 'Courier New', Courier, monospace;
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.neon-text {
+    font-size: clamp(2.5rem, 8vw, 5rem); /* Se adapta mágicamente al tamaño de pantalla */
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 0 10px var(--primary-orange), 0 0 25px var(--neon-glow);
+    letter-spacing: 2px;
+}
+
+.tagline {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+   SECCIÓN 2: CARTA DE CAMPEONATO
+   ========================================================================== */
+.card-section {
+    margin: 40px 0;
+}
+
+.letter-box {
+    background: var(--bg-card);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    border-radius: 16px;
+    padding: clamp(20px, 5vw, 40px); /* Padding responsivo */
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.letter-box h2 {
+    color: var(--primary-orange);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px dashed rgba(249, 115, 22, 0.2);
+    padding-bottom: 10px;
+}
+
+.letter-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #e2e8f0;
+}
+
+.highlight-box {
+    background: rgba(249, 115, 22, 0.1);
+    border-left: 4px solid var(--primary-orange);
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+.signature span {
+    font-size: 1.4rem;
+    color: var(--primary-orange);
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* ==========================================================================
+   SECCIÓN 3: GALERÍA RESPONSIVA (Grid Mágico)
+   ========================================================================== */
+.gallery-section {
+    margin: 60px 0;
+}
+
+.gallery-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* Autolayout: Crea columnas automáticamente según el espacio disponible */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.gallery-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto interactivo al pasar el mouse */
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.2);
+    border-color: var(--primary-orange);
+}
+
+.card-img-placeholder {
+    width: 100%;
+    height: 200px;
+    background: #1e293b;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+.card-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.gallery-card h3 {
+    font-size: 1.1rem;
+    text-align: center;
+}
