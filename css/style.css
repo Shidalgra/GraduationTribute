@@ -182,7 +182,7 @@ body {
 
 .card-img-placeholder {
     width: 100%;
-    height: 200px;
+    height: 335px;
     background: #1e293b;
     border-radius: 8px;
     display: flex;
@@ -204,4 +204,139 @@ body {
 .gallery-card h3 {
     font-size: 1.1rem;
     text-align: center;
+}
+
+/* ==========================================================================
+   SECCIÓN DE COMPARATIVA (VS SECTION)
+   ========================================================================== */
+.vs-section {
+    margin: 60px 0;
+}
+
+.vs-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    color: var(--primary-orange);
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+}
+
+.vs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+@media (min-width: 850px) {
+    .vs-grid {
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+    }
+}
+
+.vs-card {
+    background: var(--bg-card);
+    border: 2px solid rgba(249, 115, 22, 0.2);
+    border-radius: 16px;
+    padding: 20px;
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.vs-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-orange);
+}
+
+.player-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.badge {
+    background: #334155;
+    color: #e2e8f0;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.badge.highlight {
+    background: var(--primary-orange);
+    color: #fff;
+}
+
+.player-header h3 {
+    font-size: 1.6rem;
+    margin-top: 8px;
+    color: #fff;
+}
+
+.player-header .team {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Aspect ratio 16:9 perfecto para los videos */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stats-list {
+    list-style: none;
+    margin-top: auto;
+    padding: 10px 0 0 0;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.stats-list li {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+}
+
+.vs-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.vs-divider span {
+    background: #ef4444;
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.4rem;
+    padding: 12px 18px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+    font-family: 'Impact', sans-serif;
 }
