@@ -108,7 +108,7 @@ function getVelocityVector() {
     let isMobile = width < 768 && !isLandscapeMobile;
     
     // Aumentamos ligeramente el factor para PC (de 0.18 a 0.21) para que llegue bien al aro
-    const factor = isLandscapeMobile ? 250 : (isMobile ? 0.17 : 0.21); 
+    const factor = isLandscapeMobile ? 250 : (isMobile ? 0.20 : 0.37); 
     return {
         vx: dx * factor,
         vy: dy * factor
