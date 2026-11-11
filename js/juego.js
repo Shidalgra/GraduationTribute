@@ -107,8 +107,8 @@ function getVelocityVector() {
     let isLandscapeMobile = (height < 600 && width > height);
     let isMobile = width < 768 && !isLandscapeMobile;
     
-    // Factor de impulso adaptado para la mayor distancia en landscape
-    const factor = isLandscapeMobile ? 0.24 : (isMobile ? 0.17 : 0.18); 
+    // Aumentamos ligeramente el factor para PC (de 0.18 a 0.21) para que llegue bien al aro
+    const factor = isLandscapeMobile ? 250 : (isMobile ? 0.17 : 0.21); 
     return {
         vx: dx * factor,
         vy: dy * factor
@@ -239,7 +239,8 @@ function moveDrag(e) {
     let dragY = coords.y;
 
     let isLandscapeMobile = (height < 600 && width > height);
-    const maxPull = isLandscapeMobile ? 140 : (width < 768 ? 120 : 150);
+    // Aumentamos el radio de estiramiento máximo en PC a 180 para acumular más fuerza
+    const maxPull = isLandscapeMobile ? 200 : (width < 768 ? 120 : 180);
     const dx = dragX - anchorPosition.x;
     const dy = dragY - anchorPosition.y;
     const dist = Math.hypot(dx, dy);
